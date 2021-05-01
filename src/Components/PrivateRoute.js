@@ -1,7 +1,7 @@
 import React from 'react';
 import Admin from "./Admin"
 import { Redirect, Switch, Route } from "react-router-dom";
-import { islogin } from "./helper/loginmanager";
+import { islogin } from "../helper/loginmanager";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     return (

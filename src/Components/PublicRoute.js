@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { islogin } from './helper/loginmanager';
+import { islogin } from '../helper/loginmanager';
 
 const PublicRoute = ({component: Component, ...rest}) => {
     return (

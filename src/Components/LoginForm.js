@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
-import { login } from "./helper/loginmanager";
+import { login } from "../helper/loginmanager";
+import { postlogin } from "../services/baseservice"
 
 const LoginForm = () => {
     let history = useHistory();
@@ -14,14 +15,16 @@ const LoginForm = () => {
     const [loginwarningmsg, setLoginwarningmsg] = useState('')
 
     const onFinish = async values => {
-        const email = "admin@mail.com"
-        const password = "123"
-        if (values.email === email && values.password === password) {
-            login(values.email)
+
+        const res = await postlogin("login", values);
+        if (res.status === 200) {
+            login(res.data)
             history.push('/admin');
-        } else {
+        } else if (res.status === 403) {
             setLoginwarningmsg('Bilgileriniz eksik veya hatalı.')
-        } 
+        } else {
+            setLoginwarningmsg('Beklenmeyen bir hata oluştu.')
+        }
     };
 
     return (
@@ -36,7 +39,7 @@ const LoginForm = () => {
                 className="form"
             >
                 <Form.Item>
-                    <h3 style={{color:"#ef5350"}}>{loginwarningmsg}</h3>
+                    <h3 style={{ color: "#ef5350" }}>{loginwarningmsg}</h3>
                 </Form.Item>
                 <Form.Item
                     name="email"

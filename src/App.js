@@ -1,8 +1,8 @@
 import React from 'react';
-import LoginForm from "./Components/LoginForm"
-import PublicRoute from "./Components/PublicRoute"
-import PrivateRoute from "./Components/PrivateRoute"
-import Admin from "./Components/Admin"
+import LoginForm from "./components/LoginForm"
+import PublicRoute from "./components/PublicRoute"
+import PrivateRoute from "./components/PrivateRoute"
+import Admin from "./components/Admin"
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import 'antd/dist/antd.css';
 import './App.css'
