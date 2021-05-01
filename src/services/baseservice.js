@@ -1,6 +1,8 @@
 const axios = require('axios');
+const apiurl = 'http://localhost:4000/'  // doğrusu direk yazmak yerine env config ten çağırmak
 
-const apiurl = 'http://localhost:4000/'
+// API ye istek atan metod. API den cevap zaman alabilir o yuzden async kullanıldı. zaman alacak operasyonların başına await eklenerek
+// servisin beklenmesi sağlandı
 export const postlogin = async (endpoint, values) => {
 
     return await axios({

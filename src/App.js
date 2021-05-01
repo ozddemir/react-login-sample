@@ -7,6 +7,10 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import 'antd/dist/antd.css';
 import './App.css'
 
+/*
+  Site girişinde iki farklı custom route tanımladık. PublicRoute herkes için ulaşılabilirken.
+  PrivateRoute token olan kullanıcılar ulaşabilecek
+*/
 function App() {
   return (
     <>

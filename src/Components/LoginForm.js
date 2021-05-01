@@ -12,8 +12,12 @@ const LoginForm = () => {
         wrapperCol: { span: 8 },
     };
 
+    // Kullanıcı girişi sırasında oliblecek hataları kullanıcıya göstermek için kullanılan useState
     const [loginwarningmsg, setLoginwarningmsg] = useState('')
 
+    // Kullanıcı formu doldurup submit edildikten sonra, değerler onFinish fonksiyonuna düşüyor. Bu değerler postlogin ile API ye
+    // gönderiliyor. Eğer bilgiler doğruysa gereyi status 200 döndürüp token login metodu aracılığı ile localstorage kayıt ediyor.
+    // Herhangi bir hatada ilgili mesaj ekrana yansıtılıyor.
     const onFinish = async values => {
 
         const res = await postlogin("login", values);

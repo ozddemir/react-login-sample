@@ -6,13 +6,17 @@ import { LogoutOutlined } from '@ant-design/icons';
 
 const Admin = () => {
     let history = useHistory();
+
+    //bu metod ile loginmanager dosyasındaki localstorage daki tokenı silmeye yarayan logout metodu tetikleniyor
     const handlelogout = () => {
         logout();
+        //localstorage token silindikten sonra kullanıcı login sayfasına yönlendiriliyor
         history.push('/');
     }
 
     return (
         <div>
+            {/* çıkış yapmak için logout funksiyonunu tetikleyecek buton */}
             <Button style={{margin:"20px"}} icon={<LogoutOutlined />} onClick={handlelogout}>
                     Çıkış
                 </Button>
